@@ -199,8 +199,6 @@ public class AppTest {
             var response = client.post(NamedRoutes.urlChecksPath(url.getId()));
             assertThat(response.code()).isEqualTo(200);
             var urlCheck = UrlCheckRepository.getListOfLastChecks().get(url.getId());
-            var id = String.valueOf(urlCheck.getId());
-            var statusCode = String.valueOf(urlCheck.getStatusCode());
             var title = urlCheck.getTitle();
             var h1 = urlCheck.getH1();
             var description = urlCheck.getDescription();

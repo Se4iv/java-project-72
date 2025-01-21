@@ -41,16 +41,16 @@ public class App {
 
     private static int getPort() {
         String port = System.getenv().getOrDefault("PORT", DEFAULT_PORT);
-        return Integer.valueOf(port);
+        return Integer.parseInt(port);
     }
 
     public static String getJdbcUrl() {
-        String jdbcUrl = System.getenv().getOrDefault(JDBC_DATABASE_URL, DEFAULT_JDBC_URL);
-        return jdbcUrl;
+        return System.getenv().getOrDefault(JDBC_DATABASE_URL, DEFAULT_JDBC_URL);
     }
 
-    private static String readResourceFile(String fileName) throws IOException {
-        var inputStream = App.class.getClassLoader().getResourceAsStream(fileName);
+    private static String readResourceFile() throws IOException {
+        var inputStream = App.class.getClassLoader().getResourceAsStream(App.SCHEMA_FILE);
+        assert inputStream != null;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             return reader.lines().collect(Collectors.joining("\n"));
         }
@@ -59,8 +59,7 @@ public class App {
     private static TemplateEngine createTemplateEngine() {
         ClassLoader classLoader = App.class.getClassLoader();
         ResourceCodeResolver codeResolver = new ResourceCodeResolver("templates", classLoader);
-        TemplateEngine templateEngine = TemplateEngine.create(codeResolver, ContentType.Html);
-        return templateEngine;
+        return TemplateEngine.create(codeResolver, ContentType.Html);
     }
 
     public static Javalin getApp() throws IOException, SQLException {
@@ -75,7 +74,7 @@ public class App {
         }
 
         var dataSource = new HikariDataSource(hikariConfig);
-        var sql = readResourceFile(SCHEMA_FILE);
+        var sql = readResourceFile();
 
         try (var connection = dataSource.getConnection();
              var statement = connection.createStatement()) {

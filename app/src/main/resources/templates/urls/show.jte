@@ -27,7 +27,6 @@ content = @`
                     <td>${page.getCreatedAt().toLocalDateTime().format(formatter)}</td>
                 </tr>
                 </tbody>
-                </thead>
             </table>
 
             <h4 class="display-5 mt-5">Проверки:</h4>

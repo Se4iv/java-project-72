@@ -61,7 +61,7 @@ public class UrlController {
 
     public static void show(Context ctx) throws SQLException {
         var id = ctx.pathParamAsClass("id", Long.class).get();
-        var url = UrlRepository.find(Long.valueOf(id))
+        var url = UrlRepository.find(id)
                 .orElseThrow(() -> new NotFoundResponse("Url with id = " + id + " not found"));
         var urlChecks = UrlCheckRepository.getEntitiesByUrlId(id);
         var page = new UrlPage(id, url.getName(), url.getCreatedAt(), urlChecks);

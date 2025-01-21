@@ -4,7 +4,6 @@
 
 @param Content content
 @param BasePage page = null
-@param Content header = null
 
 <!doctype html>
 <html lang="en">
