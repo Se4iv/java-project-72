@@ -40,20 +40,20 @@ public class UrlController {
             var addressAsUrl = new URI(incomingAddress).toURL();
             normalizedUrl = NormalizedData.getNormalizedUrl(addressAsUrl);
         } catch (MalformedURLException | URISyntaxException | IllegalArgumentException e) {
-            ctx.sessionAttribute("flash", "Некорректный URL");
+            ctx.sessionAttribute("flash", "Uncorrected URL");
             ctx.sessionAttribute("flash-type", "warning");
             ctx.redirect(NamedRoutes.rootPath());
             return;
         }
 
         if (isUrlExists(normalizedUrl)) {
-            ctx.sessionAttribute("flash", "Данный URL уже существует");
+            ctx.sessionAttribute("flash", "URL already exists");
             ctx.sessionAttribute("flash-type", "info");
             ctx.redirect(NamedRoutes.urlsPath());
         } else {
             var url = new Url(normalizedUrl);
             UrlRepository.save(url);
-            ctx.sessionAttribute("flash", "URL успешно добавлен");
+            ctx.sessionAttribute("flash", "URL added");
             ctx.sessionAttribute("flash-type", "success");
             ctx.redirect(NamedRoutes.urlsPath());
         }

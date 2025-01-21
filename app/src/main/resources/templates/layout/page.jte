@@ -49,18 +49,6 @@
         ${content}
     </main>
 
-    <div>
-        <nav class="navbar fixed-bottom bg-dark text-white" data-bs-theme="dark">
-            <div class="container-fluid d-flex justify-content-center">
-                <p class="fw-lighter text-body-emphasis">
-                    featured by
-                    <a href="https://github.com/paulvino">Pavel Vinogradov</a>
-                    with
-                    <a href="https://ru.hexlet.io">Hexlet</a>
-                </p>
-            </div>
-        </nav>
-    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

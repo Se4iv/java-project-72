@@ -36,10 +36,10 @@ public class UrlCheckController {
             var urlCheck = new UrlCheck(statusCode, title, h1, description, urlId);
             UrlCheckRepository.save(urlCheck);
 
-            ctx.sessionAttribute("flash", "URL проверен");
+            ctx.sessionAttribute("flash", "URL checked");
             ctx.sessionAttribute("flash-type", "success");
         } catch (Exception e) {
-            ctx.sessionAttribute("flash", "Некорректный URL или проверка не удалась");
+            ctx.sessionAttribute("flash", "Unsuccessful check");
             ctx.sessionAttribute("flash-type", "warning");
         }
 

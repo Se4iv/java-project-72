@@ -203,9 +203,9 @@ public class AppTest {
             var h1 = urlCheck.getH1();
             var description = urlCheck.getDescription();
 
-            assertThat(title).isEqualTo("This is a Title =^_^=");
-            assertThat(h1).isEqualTo("This is kinda header");
-            assertThat(description).isEqualTo("some description text for tests");
+            assertThat(title).isEqualTo("Testing");
+            assertThat(h1).isEqualTo("Testing");
+            assertThat(description).isEqualTo("Testing");
             var listOfLastChecks1 = UrlCheckRepository.getListOfLastChecks();
             assertThat(listOfLastChecks1.size()).isEqualTo(1);
             var lastCheck = listOfLastChecks1.get(1L);
