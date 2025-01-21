@@ -7,4 +7,4 @@
 Check a website for SEO-suitability!
 
 ### Link to site: 
-[Link](java-project-72-production-a713.up.railway.app)
+[Link](https://java-project-72-production-a713.up.railway.app)
