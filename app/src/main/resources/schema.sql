@@ -18,8 +18,6 @@ CREATE TABLE url_checks
     title       VARCHAR(255),
     description TEXT,
     created_at  TIMESTAMP,
-    CONSTRAINT pk_url_checks PRIMARY KEY (id)
+    CONSTRAINT pk_url_checks PRIMARY KEY (id),
+    CONSTRAINT fk_url_checks_url_id FOREIGN KEY (url_id) REFERENCES urls (id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
-
-ALTER TABLE url_checks
-    ADD CONSTRAINT fk_url_checks_url_id FOREIGN KEY (url_id) REFERENCES urls (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
