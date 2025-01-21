@@ -65,6 +65,7 @@ public class App {
     public static Javalin getApp() throws IOException, SQLException {
         var hikariConfig = new HikariConfig();
         var dataBaseUrl = getJdbcUrl();
+        System.out.println(dataBaseUrl);
         if (dataBaseUrl == null || dataBaseUrl.equals(DEFAULT_JDBC_URL)) {
             hikariConfig.setJdbcUrl(dataBaseUrl);
         } else {
